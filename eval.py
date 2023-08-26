@@ -72,7 +72,7 @@ if __name__ == '__main__':
                           bidirectional=True,
                           dropout=False)
 
-    save_dict = torch.load('models/swingnet_1800.pth.tar')
+    save_dict = torch.load('models/swingnet_1800.pth.tar', map_location=torch.device('cpu'))
     model.load_state_dict(save_dict['model_state_dict'])
     model.cpu()
     model.eval()

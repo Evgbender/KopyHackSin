@@ -12,7 +12,7 @@ class EventDetector(nn.Module):
         self.dropout = dropout
 
         net = MobileNetV2(width_mult=width_mult)
-        state_dict_mobilenet = torch.load('models/mobilenet_v2.pth.tar')
+        state_dict_mobilenet = torch.load('models/mobilenet_v2.pth.tar', map_location=torch.device('cpu'))
         if pretrain:
             net.load_state_dict(state_dict_mobilenet)
 
